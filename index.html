@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QRAlimy - Smart QR Business Cards</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>QRAlimy</h1>
+    <p>Smart QR Business Cards & Parking Management</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#parking-form">Parking</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="features">
+      <h2>QRAlimy Features</h2>
+      <div class="feature-card">
+        <h3>Mobile Business Card</h3>
+        <p>A dynamic QR code that links to your customizable business profile.</p>
+        <button class="toggle-more">More Info</button>
+        <div class="more-info" style="display: none;">
+          <p>Include contact info, social links, and even videos with one QR code.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="parking-form">
+      <h2>Submit Parking Info</h2>
+      <form id="parkingDataForm" method="POST" action="submit.php">
+        <label for="plate">Vehicle Plate Number:</label>
+        <input type="text" name="plate" id="plate" required />
+        <label for="location">Parking Location:</label>
+        <input type="text" name="location" id="location" required />
+        <button type="submit">Submit</button>
+      </form>
+
+      <button id="retrieveBtn">Retrieve Parking Info</button>
+      <div id="parkingResult"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 JEJECOMMS - QRAlimy Service</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
