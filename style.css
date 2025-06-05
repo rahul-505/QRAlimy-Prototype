@@ -1,64 +1,177 @@
+:root {
+  --color-primary: #0d47a1;
+  --color-primary-dark: #08306b;
+  --color-accent: #ff4081;
+  --color-bg: #121212;
+  --color-bg-alt: #1e1e1e;
+  --color-text: #e0e0e0;
+  --color-text-light: #b0b0b0;
+  --color-shadow: rgba(0, 0, 0, 0.6);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-weight: 600;
+  line-height: 1.6;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
-  background-color: #0077cc;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark));
   color: white;
-  padding: 1em;
+  padding: 2.5rem 1rem;
   text-align: center;
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px var(--color-shadow);
+  user-select: none;
+  text-shadow: 0 1.5px 3px rgba(0,0,0,0.6);
 }
 
 nav ul {
-  background: #333;
+  background: var(--color-bg-alt);
   display: flex;
   justify-content: center;
   margin: 0;
   padding: 0;
   list-style: none;
+  box-shadow: inset 0 -2px 6px rgba(0,0,0,0.9);
 }
 
 nav ul li {
   margin: 0;
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+
+nav ul li:last-child {
+  border-right: none;
 }
 
 nav ul li a {
   display: block;
-  padding: 1em;
-  color: white;
+  padding: 1.6rem 2.5rem;
+  color: var(--color-text-light);
   text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  user-select: none;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  color: var(--color-accent);
+  background: var(--color-primary-dark);
+  box-shadow: 0 0 8px var(--color-accent);
+  outline: none;
+  border-radius: 4px;
 }
 
 main {
-  padding: 1em;
+  padding: 3rem 2rem;
+  flex-grow: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  grid-gap: 2.5rem;
 }
 
 .feature-card {
-  background: white;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: linear-gradient(145deg, var(--color-bg-alt), #222222);
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px var(--color-shadow);
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 1.25rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.feature-card:hover,
+.feature-card:focus-within {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px var(--color-accent);
+  border-color: var(--color-accent);
+  outline: none;
+  cursor: pointer;
 }
 
 footer {
-  background-color: #222;
-  color: white;
+  background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary));
+  color: var(--color-text-light);
   text-align: center;
-  padding: 1em;
-  margin-top: 2em;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  user-select: none;
+  letter-spacing: 0.8px;
+  box-shadow: inset 0 5px 15px rgba(0,0,0,0.9);
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+  main {
+    padding: 2rem 1rem;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1.8rem;
+  }
+}
+
+@media (max-width: 576px) {
   nav ul {
     flex-direction: column;
+    box-shadow: none;
+  }
+
+  nav ul li {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+
+  nav ul li:last-child {
+    border-bottom: none;
+  }
+
+  nav ul li a {
+    padding: 1.5rem 1rem;
+    font-size: 1.1rem;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1rem;
   }
 
   .feature-card {
-    font-size: 0.95em;
+    font-size: 1.1rem;
+    padding: 1.5rem 1.5rem;
+    border-radius: 12px;
   }
 }
+
